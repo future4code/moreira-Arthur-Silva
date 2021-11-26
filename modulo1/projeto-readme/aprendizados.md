@@ -1,0 +1,2 @@
+# Aprendizados da semana
+Semana recheada de coisas novas isso é tudo muito bom. S2. Vimos tanto quanto mexer nos apps mais importantes para o curso, tanto de comunicação, interação e muito mais. Achei bacana a aula de cidadania, terminal, Git etc. Estou muito **ancioso** por tudo. Nos vemos por ai.
