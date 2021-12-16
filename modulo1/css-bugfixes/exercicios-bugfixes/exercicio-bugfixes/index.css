@@ -30,7 +30,8 @@ img {
     width: 100px;
 }
 
-div>p:first-child {display: inline;
+div>p:first-child {
+    display: block;
 }
 
 
@@ -42,6 +43,10 @@ div>p:first-child {display: inline;
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    
+    display: block;
+    margin: 100px auto;
+
 }
 
 .botao-amarelo:hover {
@@ -83,9 +88,11 @@ div>p:first-child {display: inline;
     padding: 100px 0;
     font-size: 60px;
 }
-.container a{
-    display: block;
+
+#container-para-comprar a{
+    text-decoration: none;
 }
+
 
 
 /**
@@ -102,6 +109,7 @@ div:last-child {
 table {
     width: 60%;
     text-align: center;
+    margin: 0 auto;
 }
 
 td button {
@@ -138,8 +146,13 @@ td img{
     border-radius: 5px;
     font-size: 10px;
     color: black;
+
+    display: block;
+    margin: 100px auto;
+    
 }
 
 #back-button:hover {
     background-color: #635a3d
 }
+
