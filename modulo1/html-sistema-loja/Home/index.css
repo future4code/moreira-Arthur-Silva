@@ -1,0 +1,47 @@
+.titulo-home{
+    color: red;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.nav-bar{
+    text-align: center;
+    padding: 15px;
+}
+.nav-bar a{
+    font-size: 20px;
+    padding: 0px 10px;
+    background-color: rgb(126, 201, 166);
+}
+.info-lojinha{
+    padding: 20px;
+}
+.redes-sociais img{
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+}
+.ola{
+    background-color: red;
+    display: block;
+}
+.redes-sociais{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.siga-nos{
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+#rodape{
+    color: white;
+    font-size: 50px;
+    width: 100vw;
+    height: 200px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,57 @@
+.box-table{
+    display: flex;
+    justify-content: center;
+}
+table{
+    width: 800px;
+    background-color: red;
+    text-align: center;
+}
+td{
+    background-color: white;
+}
+
+.img-estoque{
+    width: 100px;
+    height: 100px;
+}
+.usuario{
+    margin-left: 200px;
+}
+.nome-lojinha-produto p{
+    padding-bottom: 20px;
+}
+.nome-lojinha{
+    border: 2px solid black;
+    color: red;
+    height: 100px;
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-bar{
+    text-align: center;
+    padding: 50px;
+    font-size: 20px;
+}
+.nav-bar a{
+    font-size: 20px;
+    padding: 0px 10px;
+    background-color: rgb(126, 201, 166);
+}
+h2{
+    text-align: center;
+}
+
+#rodape{
+    color: white;
+    font-size: 50px;
+    width: 100vw;
+    height: 200px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
