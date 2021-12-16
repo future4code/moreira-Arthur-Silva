@@ -1,0 +1,36 @@
+.nome-loja-func{
+    color: red;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom:15px ;
+}
+.nav-bar{
+    text-align: center;
+    font-size: 20px;
+}
+.nav-bar a{
+    font-size: 20px;
+    padding: 0px 10px;
+    background-color: rgb(126, 201, 166);
+}
+h2{
+    color: red;
+    margin-top: 50px;
+    text-align: center;
+}
+.funcionarios-ul li{
+    font-size: 20px;
+    line-height: 30px;
+
+}
+#rodape{
+    color: white;
+    font-size: 50px;
+    width: 100vw;
+    height: 200px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

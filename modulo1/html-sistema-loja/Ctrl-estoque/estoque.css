@@ -1,0 +1,32 @@
+.nome-lojinha-estoque{
+    color: red;
+    text-align: center;
+}
+.nav-bar{
+    display: flex;
+    justify-content: center;
+}
+.nav-bar a{
+    font-size: 20px;
+    padding: 0px 10px;
+    background-color: rgb(126, 201, 166);
+}
+.labels-items{
+    color:blueviolet;
+    font-size: 20px;
+}
+.label-input{
+    margin-top: 20px;
+}
+.submit-input{
+    margin-top: 20px;
+}
+#rodape{
+    color: white;
+    font-size: 50px;
+    width: 100vw;
+    height: 200px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+}
