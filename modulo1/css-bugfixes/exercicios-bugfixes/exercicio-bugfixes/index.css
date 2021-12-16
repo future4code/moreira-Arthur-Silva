@@ -29,13 +29,10 @@ img {
     width: 100px;
 }
 
-div>p:first-child {
-    display: inline;
+div>p:first-child {display: inline;
 }
 
-div img {
-    background: black;
-}
+
 
 .botao-amarelo {
     background-color: #ffaf43;
@@ -56,7 +53,7 @@ div img {
 }
 
 .icone {
-    height: 15px;
+    width: 15px;
 }
 
 
@@ -112,6 +109,9 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+}
+td button:hover{
+    background-color: #dfba11;
 }
 
 td img{
