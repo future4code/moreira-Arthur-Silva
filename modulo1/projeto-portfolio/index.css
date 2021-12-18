@@ -1,0 +1,89 @@
+/*
+Cores utilizadas:  D3AB9E = rosa escurinho, EAC9C1 =  rosa claro, FEFEFF = branco
+Fonte utilizada: 
+Tamanho da fonte De titulo: 25px
+Tamanho da fonte de texto base: 20px
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+
+/*Reset CSS*/
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    box-sizing: border-box;
+    text-align: center;
+    
+}
+
+header{
+    background-color:#EAC9C1 ;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+
+main{
+    width: 900px;
+    margin: 0 auto;
+}
+.info-port span{
+    font-size: 25px;
+    margin: 0px 5px;
+}
+.sobre-mim{
+    border-bottom: 3px solid #EAC9C1;
+}
+.sobre-mim h3{
+    font-size:25px;
+    padding: 50px;
+}
+.sobre-mim p{
+    font-size: 20px;
+    padding: 50px 0px;
+}
+.sobre-mim img{
+    height: 250px;
+    width: 250px;
+    border-radius: 200px;
+}
+
+
+.meus-estudos{
+    padding: 50px;
+}
+.meus-estudos h3{
+    font-size: 25px;
+}
+.meus-estudos table{
+    width: 500px;
+    padding: 50px 0px;
+}
+tr th, tr td{
+    border:3px solid #EAC9C1;
+    margin: 20px;
+}
+.tabela-estudos{
+    display: flex;
+    justify-content: center;
+}
+
+.projetos h4{
+    font-size: 25px;
+}
+.habilidades{
+    padding-top: 100px;
+}
+.formulario{
+    width: 375px;
+    height: 350px;
+    background-color: #D3AB9E;
+    margin: 0 auto;
+}
+form{
+    background-size: #EAC9C1;
+}
