@@ -1,0 +1,75 @@
+/*Reset CSS*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+main h3{
+    text-align: center;
+    padding: 15px;
+}
+.primeiro-video video{
+    width: 60%;
+}
+.primeiro-video{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+/*Start CSS - Header*/
+header{
+    height: 50px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h2{
+    padding: 0px 20px;
+}
+header input{
+    margin: 0px 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    background-color: lightblue;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer h3{
+    text-align: center;
+}
