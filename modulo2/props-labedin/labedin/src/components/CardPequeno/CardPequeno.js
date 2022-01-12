@@ -9,6 +9,7 @@ const Menu = styled.div `
     font-weight: bold;
     padding: 25px;
     width: 270px;
+    
 `
 const ImagemMenu = styled.img`
     width: 50px;
