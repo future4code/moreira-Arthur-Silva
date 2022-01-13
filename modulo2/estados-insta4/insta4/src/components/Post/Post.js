@@ -1,3 +1,4 @@
+//IMPORTAÇÃO 
 import React from 'react'
 import styled from 'styled-components'
 
@@ -8,6 +9,8 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 
+
+//ESTILIZAÇÃO
 const PostContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
@@ -39,7 +42,7 @@ const UserPhoto = styled.img`
 const PostPhoto = styled.img`
   width: 100%;
 `
-
+//LÓGICA / COMPONENTE DE CLASS
 class Post extends React.Component {
   state = {
     curtido: false,
@@ -47,9 +50,32 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0
   }
-
+  
   onClickCurtida = () => {
     console.log('Curtiu!')
+    
+
+    let curtidasRecebidas 
+    
+    if(!this.state.curtido){
+      curtidasRecebidas = this.state.numeroCurtidas + 1 
+    } else{
+      curtidasRecebidas = this.state.numeroCurtidas - 1
+    }
+    this.setState({
+      curtido: !this.state.curtido,//verdadeiro
+      numeroCurtidas: curtidasRecebidas
+    })
+    
+  }
+
+  aoCurtirFoto = () => {
+    this.setState({
+      curtido: false,
+      numeroCurtidas: this.state.numeroCurtidas + 1
+      
+    })
+    
   }
 
   onClickComentario = () => {
@@ -59,13 +85,16 @@ class Post extends React.Component {
   }
 
   aoEnviarComentario = () => {
+    
     this.setState({
       comentando: false,
       numeroComentarios: this.state.numeroComentarios + 1
+      
     })
   }
-
+  //ESTRUTURA DO CÓGIGO
   render() {
+    
     let iconeCurtida
 
     if(this.state.curtido) {
