@@ -16,8 +16,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    width: 400px;
-    height: 700px;
+    width: 275px;
+    height: 500px;
     border:1px solid black;
     background-image: url(https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg);
     border-radius: 25px;

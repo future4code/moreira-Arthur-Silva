@@ -36,33 +36,23 @@ class App extends React.Component {
       filtro: ''
     }
   
-  salvarLocalStorage = () =>{
-    /* let primeiroObjeto = this.state.tarefas[1].id */
-    localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas));
-    /* localStorage.setItem("texto", this.state.tarefas);
-    localStorage.setItem("completa", this.state.tarefas);
- */
-  }
-  pegarLocalStorage = () =>{
-    const tarefa = JSON.parse(localStorage.getItem("tarefas"))
-    /* const id = localStorage.getItem("id");
-    const texto = localStorage.getItem("texto");
-    const completa = localStorage.getItem("completa"); */
+  salvarLocalStorage = () =>{   
+    localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas));   
+  } 
+ /*  pegarLocalStorage = () =>{
+    const tarefa = JSON.parse(localStorage.getItem("tarefas"))   
     this.setState({
-      /* id: id || "",
-      texto: texto || "",
-      completa: completa || "", */
-      tarefas: tarefa || ""
+      tarefas: tarefa
     })
-  }  
+  }  */ 
 
   componentDidUpdate() {
     this.salvarLocalStorage()
   };
 
-  componentDidMount() {
+  /* componentDidMount() {
     this.pegarLocalStorage()
-  };
+  }; */
 
   onChangeInput = (event) => {
     this.setState({
@@ -77,7 +67,7 @@ class App extends React.Component {
       completa: false
     }
 
-    const copiaEstado = [... this.state.tarefas, novoObjeto]
+    const copiaEstado = [...this.state.tarefas, novoObjeto]
 
     this.setState({
       tarefas:copiaEstado,
