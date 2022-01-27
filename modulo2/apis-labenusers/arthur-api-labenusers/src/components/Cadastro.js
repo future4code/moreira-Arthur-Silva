@@ -1,4 +1,3 @@
-
 import React from "react";
 import axios from 'axios';
 
@@ -17,15 +16,7 @@ export default class Home extends React.Component {
         nomeUsuario: '',
         emailUsuario: ''
     }
-    componentDidMount(){
-        this.getAllUsers()
-    }
-    getAllUsers = () => {
-        axios
-        .get(urlUsers, headers)
-        .then((res) => { this.setState({ users: res.data }) })
-        .catch((err) => { alert("Algo deu errado!") })
-    }
+    
     createUser = () => {
         const body = {
             name: this.state.nomeUsuario,
@@ -35,7 +26,7 @@ export default class Home extends React.Component {
         axios
             .post(urlUsers, body, headers)
             .then((res) => {
-                alert (`O usuario ${this.state.nomeUsuario} foi criado com sucesso!`);
+                alert (`O usuario ${this.state.nomeUsuario} foi cadastrado com sucesso!`);
                 this.setState({ nomeUsuario:'', emailUsuario:''})
                 this.getAllUsers()
             })
@@ -54,16 +45,14 @@ export default class Home extends React.Component {
 
 
     render(){
-        const copiaDosUsuarios = this.state.users.map((usuarios) => {
-            return <li key={usuarios.id}>{usuarios.name}</li>
-        })
-
         return(
-            <>
+            <>  
+                <h1>Tela de cadastro</h1>
                 <input type="text" onChange={this.onChangeUsuario} value={this.state.nomeUsuario} placeholder="Nome"></input>
                 <input type="text" onChange={this.onChangeEmail} value={this.state.emailUsuario} placeholder="Email"></input>
                 <button onClick={this.createUser}>Cadastre aqui</button>
-                {copiaDosUsuarios}
+                {/* {copiaDosUsuarios} */}
+                <button onClick={this.props.irParaUsuarios}>Ir página de usuarios</button>
             </>
         )
     }
