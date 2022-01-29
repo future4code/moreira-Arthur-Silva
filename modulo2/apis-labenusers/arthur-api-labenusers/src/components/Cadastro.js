@@ -28,7 +28,7 @@ export default class Home extends React.Component {
             .then((res) => {
                 alert (`O usuario ${this.state.nomeUsuario} foi cadastrado com sucesso!`);
                 this.setState({ nomeUsuario:'', emailUsuario:''})
-                this.getAllUsers()
+                /* this.getAllUsers() */
             })
             .catch((err) => {
                 alert(err.response.data.message);

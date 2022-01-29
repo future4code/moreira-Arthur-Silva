@@ -62,6 +62,7 @@ class Users extends React.Component{
         })
     }
     render(){
+        console.log(this.state.users)
         const copiaDosUsuarios = this.state.users.map((usuarios) => {
             return (
                 <Li key={usuarios.id}>{usuarios.name}<BtnLi onClick={() => this.deleteUser(usuarios.id)}>x</BtnLi></Li>
