@@ -9,6 +9,23 @@ const BoxContainer = styled.div`
   display: flex;
   justify-content: center;
 `
+const Button = styled.button`
+    //argin-left: 20px;
+    margin: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: black;
+    color: white;
+    &:hover{
+        color: black;
+        background-color: white;
+    }
+`
 
 const App = () => {
   
@@ -32,7 +49,6 @@ const App = () => {
       axios
       .put(url)
       .then((res) => {
-        console.log("aqui sua resposta", res)
         setButtonReset(res.data)
       })
       .catch((err) => {
@@ -49,7 +65,7 @@ const App = () => {
   return (
     <BoxContainer >
       {renderizaTela()}
-      <button onClick={() => buttonAxi()}>Resete</button>
+      <Button onClick={() => buttonAxi()}>RESETAR MATCHES</Button>
     </BoxContainer>
   );
 }

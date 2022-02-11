@@ -10,6 +10,20 @@ const Container = styled.div`
     border-radius: 15px;
     position: relative;
 `
+const Button = styled.button`
+    //argin-left: 20px;
+    margin-top: 25px ;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: black;
+    color: white;
+    &:hover{
+        color: black;
+        background-color: white;
+    }
+`
 const Title = styled.div`
     display: flex;
     justify-content: space-around;
@@ -38,7 +52,7 @@ const DivButtons = styled.div`
     display: flex;
     justify-content: space-evenly;
     position: relative;  
-    bottom: 50px;  
+    bottom: 80px;  
 `
 const FirstButton = styled.button`
     height: 70px;
@@ -115,7 +129,7 @@ const HomeScreen = (props) => {
         <Container>
             <Title>
                 <h1>AstroMatch</h1>
-                <p>☻<button onClick={props.botao}>Pag of matches</button></p>
+                <Button onClick={props.botao}>Pag of matches</Button>
             </Title>
             <BoxImage>
                 <Img src={allMatches.photo} alt="" />
