@@ -3,16 +3,19 @@ import React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const LoginPage = () =>{
+const LoginPage = (props) =>{
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
+    
     const navigate = useNavigate()
+    
+    const [token, setToken] = useState("")
 
     const pointLogin = () => {
-        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login"
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/arthurkelvim/login"
         /* const headers = {
-            headers{
+            headers:{
                 "Content-Type": "application/json"
             }
         } */
@@ -23,18 +26,19 @@ const LoginPage = () =>{
         axios
         .post(url, body)
         .then((response) => {
-            console.log("sua resposta:", response)
+            setToken(localStorage.setItem("tokenId",response.data.token))
+            alert("vc está logado")
+            navigate("/HAadminPage")
         })
         .catch((err) => {
-            console.log("seu erro:",err)
+            console.log("seu erro:",err.response)
         })
-        console.log("seus dados", email, senha)
+        console.log("dados",body)
     }
-
-    const entrar = () =>{
+    /* const entrar = () =>{
         navigate("/HAadminPage")
         
-    }
+    } */
     const onChangeEmail = (e) =>{
         setEmail(e.target.value)
     }
@@ -52,7 +56,7 @@ const LoginPage = () =>{
                 <input value={senha} onChange={onChangeSenha} type="password" placeholder="Senha"/>
             </div>
             <button onClick={() => navigate(-1)}>Voltar</button>
-            <button onClick={entrar}>Entrar</button>
+            {/* <button onClick={entrar}>Entrar</button> */}
             <button onClick={pointLogin}>Enviar</button>
         </div>
     )

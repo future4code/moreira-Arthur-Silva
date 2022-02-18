@@ -2,21 +2,36 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import axios from "axios"
+import  UseProtectApp from '../Hooks/Hook'
 
 
-const DetailPage = () =>{
+const DetailPage = (props) =>{
 
     const navigate = useNavigate()
-    //const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/trip/:id"
+    
+    UseProtectApp()
+
+    useEffect(() => {
+        
+        axios
+        .get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/arthurkelvim/trip/0950yKza7NLdQlHnVR6T", {
+            headers: {
+                auth: localStorage.getItem("tokenId")
+            }
+        })
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
+    },[])
 
     const voltarHome = () =>{
         navigate("/")
     }
 
-    /* useEffect(() => {
-        axios
-        .get()
-    }, []) */
+    
     
     return(
         <div>

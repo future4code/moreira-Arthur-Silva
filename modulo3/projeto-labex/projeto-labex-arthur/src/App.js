@@ -8,14 +8,18 @@ import ListTripPage from './pages/ListTripPage'
 import { BrowserRouter as Router, Route , Routes} from "react-router-dom";
 
 
+
+
+
 function App() {
+    
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/CreateTripPage" element={<CreateTripPage />} />
-        <Route path="/DetailPage" element={<DetailPage />} />
+        <Route path="/DetailPage" element={<DetailPage />} /> 
         <Route path="/HAadminPage" element={<HAdminPage />} />
         <Route path="/FormApPage" element={<FormApPage />} />
         <Route path="/ListTripPage" element={<ListTripPage />} />
