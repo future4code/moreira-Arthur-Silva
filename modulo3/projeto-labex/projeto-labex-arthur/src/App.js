@@ -6,15 +6,20 @@ import CreateTripPage from './pages/CreateTripPage'
 import LoginPage from './pages/LoginPage'
 import ListTripPage from './pages/ListTripPage'
 import { BrowserRouter as Router, Route , Routes} from "react-router-dom";
+import { createGlobalStyle } from 'styled-components'
 
-
-
-
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+`
 
 function App() {
     
   return (
     <Router>
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/LoginPage" element={<LoginPage />} />

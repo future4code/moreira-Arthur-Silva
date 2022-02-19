@@ -19,7 +19,7 @@ const CreateTripPage = (props) =>{
     const [planeta, setPlaneta] = useState("")
     const [data, setData] = useState("")
     const [descricao, setDescricao] = useState("")
-    const [duracao, setDuracao] = useState("")
+    const [duracao, setDuracao] = useState(0)
     const [viagemCriada, setViagemCriada] = useState([])
 
     const navigate = useNavigate()
@@ -28,10 +28,10 @@ const CreateTripPage = (props) =>{
        
     const criarViagem = () =>{
         const idToken = localStorage.getItem("tokenId")
+
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/arthurkelvim/trips"
         const headers ={
             headers:{
-                "Content-type": "application/json",
                 "auth": idToken
             }
         }
@@ -40,18 +40,19 @@ const CreateTripPage = (props) =>{
             planet: planeta,
             date: data,
             description: descricao,
-            durationInDays: duracao
+            durationInDays: Number(duracao)
         }
         axios
-        .post(url, headers, body)
+        .post(url, body, headers)
         .then((res) => {
             console.log(res.data)
             alert("Viagem criada!")  
+            navigate("/HAadminPage")
         })
         .catch((err) =>{
             console.log(err.response)
         }) 
-        //navigate("/HAadminPage")
+        
     }
 
     const onChangeNome = (e) =>{
@@ -69,7 +70,8 @@ const CreateTripPage = (props) =>{
     const onChangeDuracao = (e) =>{
         setDuracao(e.target.value)
     }
-  
+    
+    
     return(
         <Container>
             <h1>Criar viagem</h1>
