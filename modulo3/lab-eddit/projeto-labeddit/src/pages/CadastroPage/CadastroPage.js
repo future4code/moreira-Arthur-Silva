@@ -1,7 +1,16 @@
 const CadastroPage = () => {
     return(
         <div>
-            <h1>Página de Cadastro</h1>
+            <div>
+                <h1>HEADER/CADASTRO</h1>
+                <form action="">
+                    <input type="text" placeholder="Nome do usuário:"/>
+                    <input type="email" placeholder="Email:" />
+                    <input type="password" placeholder="Senha:" />
+                    <br/>
+                    <button>Cadastrar</button>
+                </form>
+            </div>
         </div>
     )
 }

@@ -1,7 +1,21 @@
+
+import ButtonAppBar from '../../components/Botao'
+
 const LoginPage = () => {
+
     return(
         <div>
-            <h1>Página de Login</h1>
+            <header>
+                <h1>HEADER/LOGIN</h1>
+            </header>
+            <form>
+                <input type="text" placeholder="Email:"/>
+                <input type="text" placeholder="Senha:" />
+                <button>Entrar</button>
+            </form>
+            <br/>
+            <button>Cadastrar</button>
+            <ButtonAppBar />
         </div>
     )
 }
