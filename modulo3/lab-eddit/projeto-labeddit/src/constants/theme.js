@@ -1,20 +1,19 @@
-import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { purple } from '@mui/material/colors';
-import Button from '@mui/material/Button';
-import primmaryColor from './colors'
+import {  createMuiTheme } from '@material-ui/core/styles';
+import { firstColor, secondColor } from './colors'
 
 
-const theme = createTheme({
+const theme =  createMuiTheme({
   palette: {
     primary: {
-      // Purple and green play nicely together.
-      main: primmaryColor,
+      main: firstColor,
+      contrastText: "White"
     },
     secondary: {
-      // This is green.A700 as hex.
-      main: '#11cb5f',
+      main: secondColor
+    },
+    text: {
+      primary: firstColor,
     },
   },
 });
-
+export default theme

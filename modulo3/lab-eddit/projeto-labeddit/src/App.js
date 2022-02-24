@@ -1,6 +1,8 @@
 import React from 'react';
 import Router from './routes/Router';
 import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './constants/theme';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -11,10 +13,10 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return(
-    <div>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Router />
-    </div>
+    </ThemeProvider>
   )
 }
 export default App;

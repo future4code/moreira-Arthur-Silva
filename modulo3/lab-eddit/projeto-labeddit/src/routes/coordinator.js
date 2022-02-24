@@ -4,10 +4,10 @@ export const goToLoginPage = (navigate) =>{
 export const goToCadastroPage = (navigate) =>{
     navigate("/cadastro")
 }
-export const goToFeedPage = (navigate, id) =>{
+export const goToFeedPage = (navigate) =>{
     navigate("/feed")
 }
-export const goToPostPage = (navigate) =>{
+export const goToPostPage = (navigate, id) =>{
     navigate("/post:id")
 }
 
