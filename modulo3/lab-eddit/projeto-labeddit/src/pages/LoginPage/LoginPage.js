@@ -3,11 +3,12 @@ import { goToCadastroPage } from '../../routes/coordinator'
 import { BASE_URL } from '../../constants/urls'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+//import { useUnProtectPage } from '../../hooks/useUnProtectedPage'
 import axios from 'axios'
-//import { ThemeContext } from 'styled-components'
 
 const LoginPage = () => {
 
+    //useUnProtectPage()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("") 
 

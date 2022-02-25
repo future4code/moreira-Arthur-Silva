@@ -3,9 +3,13 @@ import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
 import { goToFeedPage } from '../../routes/coordinator'
 import { useNavigate } from 'react-router-dom'
+import useUnProtectPage from '../../hooks/useUnProtectedPage'
+//import { useUnProtectedPage } from '../../hooks/useUnProtectedPage'
  
 
 const CadastroPage = () => {
+
+    useUnProtectPage()
 
     const [nome, setNome] = useState("") 
     const [email, setEmail] = useState("")
@@ -25,6 +29,7 @@ const CadastroPage = () => {
         .post(`${BASE_URL}/users/signup`, body)
         .then((res) => {
             alert(`Parabéns ${nome} você foi cadastrado com sucesso! :D`)
+            localStorage.setItem("token", res.data.token)
             setNome("")
             setEmail("")
             setSenha("")
@@ -85,7 +90,6 @@ const CadastroPage = () => {
                     <br/>
                     <button>Cadastrar</button>
                 </form>
-                <button>ir para loginPage</button>
             </div>
         </div>
     )
