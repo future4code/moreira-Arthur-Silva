@@ -1,6 +1,7 @@
 import axios from "axios"
 import useProtectPage from "../../hooks/useProtectPage"
 import Post from "../../components/Post"
+import CircularProgress from '@mui/material/CircularProgress'
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { BASE_URL, token } from "../../constants/urls"
@@ -12,12 +13,13 @@ const FeedPage = () => {
     
     useProtectPage()
 
-    const [titulo, setTitulo] = useState("")
+    const [titulo, setTitulo] = useState("Post")
     const [post, setPost] = useState("")
     const [bodyPost, setbodyPost] = useState([])
+    const [carregando, setCarregando] = useState(false)
 
     const navigate = useNavigate()
-
+    
     const createPost = (e) => {
         e.preventDefault()
         const body = {
@@ -31,19 +33,23 @@ const FeedPage = () => {
         .post(`${BASE_URL}/posts`, body, headers )
         .then((res) => {
             alert("post criado!")
+            setPost("")
         })
         .catch((err) => {
             console.log(err.response)
         })
     }
+    
     const pegarPosts = () => {
+
+        setCarregando(true)
         const headers = {
             headers: { Authorization: token }
         }
         axios
         .get(`${BASE_URL}/posts`, headers)
         .then((res) => {
-            console.log(res.data)
+            setCarregando(false)
             setbodyPost(res.data)
         })
         .catch((err) => {
@@ -51,21 +57,18 @@ const FeedPage = () => {
         })
     }
     
-    
     const pagDetalhadaDoPost = (id) => {
         goToPostPage(navigate, id)
-        //props.funcaoId
+        
     }
-    /* const createComment = () =>{
-
-    } */
+    
     useEffect(() => {
         pegarPosts()
     },[])
 
-    const onChangeTitulo = (e) =>{
+    /* const onChangeTitulo = (e) =>{
         setTitulo(e.target.value)
-    }
+    } */
     const onChangePost = (e) =>{
         setPost(e.target.value)
     }
@@ -73,13 +76,13 @@ const FeedPage = () => {
         <div>
             <h1>Faça um post aqui!</h1>
             <form onSubmit={createPost}>
-                <input 
+                {/* <input 
                 type="text" 
                 placeholder="Titulo"
                 onChange={onChangeTitulo}
                 value={titulo}
                 required
-                />
+                /> */}
 
                 <input 
                 type="text"
@@ -90,7 +93,7 @@ const FeedPage = () => {
                  />
                 <button>Postar</button>
             </form>
-            {bodyPost.map((post) => {
+            {carregando ? <CircularProgress color="secondary"/> : bodyPost.map((post) => {
                 return (
                     <Post
                     key={post.id}

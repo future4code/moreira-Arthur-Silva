@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import { useNavigate } from "react-router-dom"
-import { goToPostPage } from '../routes/coordinator'
 
 const Container = styled.div`
     border: 1px solid;
