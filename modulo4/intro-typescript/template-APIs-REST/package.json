@@ -1,0 +1,19 @@
+{
+  "name": "templateAPIsREST",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/index.js",
+    "startdois": "node ./build/exercicio_dois.js",
+    "starttres": "node ./build/exercicio_tres.js",
+    "startquatro": "node ./build/exercicio_quatro.js",
+    "startcinco": "node ./build/exercicio_cinco.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
