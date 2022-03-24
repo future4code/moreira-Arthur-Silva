@@ -1,0 +1,16 @@
+{
+  "name": "matematica",
+  "version": "1.0.0",
+  "description": "\"exercicio de matematica\"",
+  "main": "mat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "matematica": "node mat.js"
+  },
+  "keywords": [
+    "exercicios",
+    "matematicos"
+  ],
+  "author": "arthur",
+  "license": "ISC"
+}
