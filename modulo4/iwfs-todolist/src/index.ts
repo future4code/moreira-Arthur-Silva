@@ -50,8 +50,95 @@ app.post("/user", async (req:Request, res:Response) => {
     } catch (error:any) {
         res.status(errorCode).send({message:error.message})
     }    
-})    
+})
 
+//ESTE ENDPOINT BUSCA USUARIO PELO ID 
+app.get("/user/:id", async (req:Request, res:Response) => {
+
+    try {
+        if(!req.params.id){
+            errorCode = 400
+            throw new Error("Error in request");
+        }
+        const result = await connection.raw(`
+            SELECT id, nickname FROM users WHERE id = ${req.params.id};
+        `)
+        if(!result){
+            errorCode = 400
+            throw new Error("O usuario nao foi encontrado");
+        }
+        res.status(200).send(result)
+    } catch (error:any) {
+        res.status(errorCode).send({message:error.message})
+    }
+})
+
+//ESTE ENDPOINT EDITA O USUARIO
+app.put("/user/edit/:id", async (req:Request, res:Response) => {
+    try {
+        if(req.body.name === "" && req.body.nickname === "" && req.body.email === ""){
+            errorCode = 204
+            throw new Error("Os campos não foram preenchidos corretamente");
+        }
+        await connection.raw(`
+        UPDATE users
+        SET name = ${req.body.name}, nickname = ${req.body.nickname}, email = ${req.body.email}
+        WHERE id = ${req.params.id}
+        `)
+        res.status(202).send("Sucess")
+    } catch (error:any) {
+        res.status(errorCode).send({message:error.message})
+    }
+})
+//ESTE ENDPOINT CRIA UMA TAREFA
+app.post("/task", async (req:Request, res:Response) => {
+    let date = req.body.dateLimit
+    let dateAtt = date.split("/", 3)
+    try {
+        if(!req.body.title && !req.body.description && !req.body.dateLimit && !req.body.creatorUserId){
+            errorCode = 204
+            throw new Error("Preencha os campos corretamente");   
+        }
+        await connection.raw(`
+            INSERT INTO tarefa
+            VALUES
+            (   
+                ${Date.now().toString()}
+                "${req.body.title}",
+                "${req.body.description}",
+                "${dateAtt}",
+                "${req.body.creatorUserId}"
+            )
+        `)
+        res.status(201).send("Sucess")
+    } catch (error:any) {
+        res.status(errorCode).send({message:error.message})
+    }
+})
+//ESTE ENDPOINT PEGA A TAREFA PELO ID
+
+app.get("/task/:id", async (req:Request, res:Response) =>{
+    try {
+        if(!req.params.id){
+            errorCode = 400
+            throw new Error("Não foi encontrado um pametro válido");
+        }
+        const result = await connection.raw(`
+        SELECT 
+        tarefas.id,
+        tarefas.title,
+        tarefas.description,
+        tarefas.date_limit,
+        tarefas.status,
+        tarefas.creator_user_id,
+        users.nickname 
+        FROM tarefas JOIN users ON tarefas.id = ${req.params.id};
+        `)
+        res.status(200).send(result)
+    } catch (error:any) {
+        res.status(400).send({message:error.message})
+    }
+})
 
 
 
