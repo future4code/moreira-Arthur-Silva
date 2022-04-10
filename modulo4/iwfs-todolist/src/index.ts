@@ -33,14 +33,14 @@ let errorCode = 500
 app.post("/user", async (req:Request, res:Response) => {
     
     try {
-        if(!req.body.name && !req.body.nickname && !req.body.email){
+        if(!req.body.name || !req.body.nickname || !req.body.email){
             errorCode = 400
             throw new Error("Error in the request");
         }    
         await connection.raw(`
-            INSERT INTO users
+            INSERT INTO users (id, name, nickname, email)
             VALUES(   
-                ${Date.now().toString()}
+                "${Date.now().toString()}",
                 "${req.body.name}",
                 "${req.body.nickname}",
                 "${req.body.email}"
@@ -49,7 +49,7 @@ app.post("/user", async (req:Request, res:Response) => {
         res.status(201).send("Created!")
     } catch (error:any) {
         res.status(errorCode).send({message:error.message})
-    }    
+    }  
 })
 
 //ESTE ENDPOINT BUSCA USUARIO PELO ID 
@@ -67,7 +67,7 @@ app.get("/user/:id", async (req:Request, res:Response) => {
             errorCode = 400
             throw new Error("O usuario nao foi encontrado");
         }
-        res.status(200).send(result)
+        res.status(200).send(result[0])
     } catch (error:any) {
         res.status(errorCode).send({message:error.message})
     }
@@ -75,14 +75,21 @@ app.get("/user/:id", async (req:Request, res:Response) => {
 
 //ESTE ENDPOINT EDITA O USUARIO
 app.put("/user/edit/:id", async (req:Request, res:Response) => {
+    const name = req?.body.name
+    const nickname = req?.body.nickname
+    const email = req?.body.email
+
     try {
-        if(req.body.name === "" && req.body.nickname === "" && req.body.email === ""){
+        if(!req.body){
             errorCode = 204
             throw new Error("Os campos não foram preenchidos corretamente");
         }
         await connection.raw(`
         UPDATE users
-        SET name = ${req.body.name}, nickname = ${req.body.nickname}, email = ${req.body.email}
+        SET 
+        name = "${name}",
+        nickname = "${nickname}",
+        email = "${email}"
         WHERE id = ${req.params.id}
         `)
         res.status(202).send("Sucess")
@@ -92,22 +99,29 @@ app.put("/user/edit/:id", async (req:Request, res:Response) => {
 })
 //ESTE ENDPOINT CRIA UMA TAREFA
 app.post("/task", async (req:Request, res:Response) => {
-    let date = req.body.dateLimit
-    let dateAtt = date.split("/", 3)
+    /* let date = req.body.date_Limit
+    let dateAtt = date.split("/", 3) */
     try {
-        if(!req.body.title && !req.body.description && !req.body.dateLimit && !req.body.creatorUserId){
+        if(
+            !req.body.title ||
+            !req.body.description ||
+            !req.body.dateLimit ||
+            !req.body.status || 
+            !req.body.creatorUserId
+        ){
             errorCode = 204
             throw new Error("Preencha os campos corretamente");   
         }
         await connection.raw(`
-            INSERT INTO tarefa
+            INSERT INTO tarefas 
             VALUES
             (   
-                ${Date.now().toString()}
+                ${Date.now().toString()},
                 "${req.body.title}",
                 "${req.body.description}",
-                "${dateAtt}",
-                "${req.body.creatorUserId}"
+                "${req.body.date_Limit}",
+                "${req.body.status}",
+                "${req.body.creator_User_Id}"
             )
         `)
         res.status(201).send("Sucess")
@@ -134,7 +148,7 @@ app.get("/task/:id", async (req:Request, res:Response) =>{
         users.nickname 
         FROM tarefas JOIN users ON tarefas.id = ${req.params.id};
         `)
-        res.status(200).send(result)
+        res.status(200).send(result.flat(1)[0])
     } catch (error:any) {
         res.status(400).send({message:error.message})
     }
@@ -172,3 +186,8 @@ VALUES
 ("01", "arthur kelvim","arthuzinho", "kelvimarthur@gmail.com");
 
 */ 
+
+
+//RESOLVER PROBLEMAS
+
+//1-) ENDPOINT DE EDITAR USUARIO ESTÁ DANDO PROBLEMA.
