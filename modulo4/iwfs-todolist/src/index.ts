@@ -101,13 +101,14 @@ app.put("/user/edit/:id", async (req:Request, res:Response) => {
 app.post("/task", async (req:Request, res:Response) => {
     /* let date = req.body.date_Limit
     let dateAtt = date.split("/", 3) */
+   
     try {
         if(
             !req.body.title ||
             !req.body.description ||
-            !req.body.dateLimit ||
+            !req.body.date_Limit ||
             !req.body.status || 
-            !req.body.creatorUserId
+            !req.body.creator_User_Id
         ){
             errorCode = 204
             throw new Error("Preencha os campos corretamente");   
@@ -151,6 +152,17 @@ app.get("/task/:id", async (req:Request, res:Response) =>{
         res.status(200).send(result.flat(1)[0])
     } catch (error:any) {
         res.status(400).send({message:error.message})
+    }
+})
+//ESTE ENDPOINT PEGA TODOS OS USUARIOS
+app.get("/users/all", async (req:Request, res:Response) => {
+    try {
+        const result = await connection.raw(`
+            SELECT users.id, users.nickname FROM users
+        `)
+        res.status(200).send(result[0])
+    } catch (error:any) {
+        res.status(errorCode).send({message:error.message})
     }
 })
 
