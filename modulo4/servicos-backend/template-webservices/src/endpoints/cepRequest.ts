@@ -1,8 +1,9 @@
 import axios from "axios";
+import app from "../app";
 import { connection } from "../data/connection";
 
 //FUNCAO QUE RETORNA DADOS DO USUARIO
-export const getInfo = async (cep:string) => {
+export const cepRequest = async (cep:string) => {
     const result = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
     const infoUser = {
         cep: result.data.cep,
@@ -15,9 +16,9 @@ export const getInfo = async (cep:string) => {
     }
     
     console.log(infoUser)
-    return infoUser
-    
-    /* await connection.raw(`
+    //return infoUser
+    //https://viacep.com.br/ws/05424150/json/
+    await connection.raw(`
         INSERT INTO adressUser
         VALUES (
             "${infoUser.cep}",
@@ -28,12 +29,16 @@ export const getInfo = async (cep:string) => {
             "${infoUser.cidade}",
             "${infoUser.estado}",
         )
-    `) */
+    `)
     
 }
-getInfo("72115927")
-//FUNCAO QUE PREENCHE AUTOMATICAMENTE ALGUNS DADOS DO USUARIO
-
+cepRequest("72115927")
+//FcepRequest
 
 
 //https://viacep.com.br/ws/72115927/json/
+
+
+
+//: = path params
+//? = query paramys

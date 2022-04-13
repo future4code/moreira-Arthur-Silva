@@ -1,7 +1,6 @@
 import {Request, Response} from 'express'
 import { connection } from "../data/connection";
 import { user } from "../types";
-import { getInfo } from '../endpoints/cepRequest'
 
 export default async function createUser(
    req: Request,
