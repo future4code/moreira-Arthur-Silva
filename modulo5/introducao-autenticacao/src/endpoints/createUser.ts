@@ -1,16 +1,17 @@
 import {Response, Request} from 'express'
 import { connection } from '../connection'
 import { newId } from '../services/generatedId'
+import { User_type } from '../types'
+
 
 export async function createUser(
     req:Request,
     res:Response
 ) {
     try {
-        const email = req.body.email
-        const password = req.body.password
+        const {email, password} = req.body
 
-        const user:{id:string ,email:string, password:string} = {
+        const user:User_type = {
             id:newId(),
             email,
             password

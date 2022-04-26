@@ -7,4 +7,4 @@
 
 ## QUESTAO 2
 <P>2- B)O código da questão cria uma variável, armazenando nela o nome de uma tabela. Em seguida faz a conexão com o banco de dados utilizando o knex. E por ultimo ele insere um usuario dentro da tabela.</P>
-<p>2- C)</p>
+<p>2- C)Foi criado a função dentro da pasta "endpoits".</p>
