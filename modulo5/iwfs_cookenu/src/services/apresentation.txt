@@ -1,0 +1,3 @@
+//uuid = usada para gerar ids unicos
+//jsonwebtoken = usada para gerar tokens
+//bcrypt = usada para encriptar senhas
