@@ -5,12 +5,12 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 export class Authenticator {
-    genereteToken(data:AuthenticatorData):string{
+    generateToken(data:AuthenticatorData):string{ //O DADO ESPERADO É 
         const token = jwt.sign(
             data,
             process.env.JWT_KEY as string,
             {
-                expiresIn:"5h"
+                expiresIn:"24h"
             }
         )
         return token
