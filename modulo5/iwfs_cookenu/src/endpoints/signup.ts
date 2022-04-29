@@ -11,7 +11,6 @@ export async function signUp(
 ) {
     try {
         const { name, email, password } = req.body
-        /* const id:string =  */
         const idToken:AuthenticatorData = {
             id:generateId()
         }
@@ -40,8 +39,3 @@ export async function signUp(
         res.status(201).send({error:error.message})
     }
 }
-
-
-//uuid = usada para gerar ids unicos
-//jsonwebtoken = usada para gerar tokens
-//bcrypt = usada para encriptar senhas
