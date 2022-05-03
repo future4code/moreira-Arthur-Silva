@@ -10,7 +10,7 @@ import { signUp } from "./endpoints/signup";
     id:"laranjinha456"
 }
 const token = new Authenticator().generateToken(dado) */
-
+//coment
 app.post("/signup", signUp)
 app.post("/login", login)
 app.get("/user/profile", getMyProfile)
