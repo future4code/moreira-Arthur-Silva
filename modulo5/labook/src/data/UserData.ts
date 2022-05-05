@@ -7,12 +7,18 @@ export class UserData extends BaseDataBase {
             .insert(user)
     }
     async getUserByEmail(email:string){
-        const user = await this.connection("LaBook")
+        try {
+            const user = await this.connection("LaBook")
             .select("*")
             .where({email})
-        if(!user){
-            throw new Error("Usuario não encontrado!");  
-        }
-        return user[0].email    
+        
+            return user[0]
+        } catch (error:any) {
+            if(error instanceof Error){
+                throw new Error(error.message);
+            } else {
+                throw new Error("erro no banco");
+            }
+        }    
     }
 }

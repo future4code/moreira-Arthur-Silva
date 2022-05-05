@@ -12,3 +12,7 @@ export type SignUpDTO = {
     email:string,
     password:string
 } //AQUI SE CRIA UM OBJETO DE TRANSFERENCIA DE DADOS, TEM A VER COMO AS CAMADAS VÃO SE COMUNICAR ENTRE ELAS.
+export type LoginDTO = {
+    email:string,
+    password:string
+}
