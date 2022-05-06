@@ -1,7 +1,5 @@
 import { Response, Request } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { UserData } from "../data/UserData";
-import { Authenticator } from "../services/GenerateToken";
 import { LoginDTO, SignUpDTO } from "../types/types";
 /*
     CONTROLLER: RECEBE REQUISIÇÃO E ENTREGA RESPOSTA

@@ -1,3 +1,5 @@
+import { normalize } from "path"
+
 export type AuthenticatorData = {
     id:string
 }
@@ -15,4 +17,24 @@ export type SignUpDTO = {
 export type LoginDTO = {
     email:string,
     password:string
+}
+enum TypePost {
+    NORMAL = "NORMAL",
+    EVENTO = "EVENTO"
+}
+export type InputPostDTO ={
+    photo:string,
+    description:string,
+    type:string
+}
+export type TokenDTO = {
+    token:string
+}
+export type Post ={
+    photo:string,
+    description:string,
+    type:string,
+    id:string,
+    date_create:string,
+    creator_id:string
 }

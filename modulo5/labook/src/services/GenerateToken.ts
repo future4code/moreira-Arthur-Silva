@@ -21,6 +21,7 @@ export class Authenticator {
                 token,
                 process.env.JWT_KEY as string
             ) as AuthenticatorData
+            
             return verify
         } catch (error) {
             throw new Error("Não foi encontrado um token");

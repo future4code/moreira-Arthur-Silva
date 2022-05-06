@@ -3,7 +3,6 @@ import { GenerateID } from "../services/GenerateID";
 import { LoginDTO, SignUpDTO, User } from "../types/types";
 import { HashManager } from "../services/HashManager"
 import { Authenticator } from "../services/GenerateToken";
-import { AuthenticatorData } from "../types/types";
 
 export class UserBusiness {
     async signUp(input:SignUpDTO){
@@ -66,7 +65,7 @@ export class UserBusiness {
             }
             
             const token = new Authenticator().generateToken({id:verifyUser.id})
-            console.log("token", token)
+            //console.log("token", token)
 
             return token
         } catch (error:any) {
