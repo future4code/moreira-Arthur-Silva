@@ -1,7 +1,6 @@
 import { User } from "./types/type";
 
-class Balance {
-    
+export class Balance {
     public balance(user:User, value:number){
         let saldo = user.balance - value
         let newBalance = {...user, balance:saldo}
@@ -9,7 +8,7 @@ class Balance {
         if(saldo > 0){
             return newBalance
         }else{
-            return "saldo negativo"
+            return "seu saldo está zerado e nao permite transaçoes no momento"
         }
     }
 }
