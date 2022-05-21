@@ -11,19 +11,18 @@ export class PaymentCardController {
             const input:inputCardDTO = { 
                 nameBuyer:req.body.nameBuyer,
                 emailBuyer:req.body.emailBuyer, 
-                cpfBuyer:req.body.cpfBuyer, 
-                amountPayment:req.body.amountPayment,
+                cpfBuyer:req.body.cpfBuyer,
                 typePayment:req.body.typePayment, 
-                holderNameCard:req.body.holderNameCard, 
-                numberCard:req.body.numberCard, 
-                expirationDateCard:req.body.expirationDateCard, 
-                cvvCard:req.body.cvvCard
+                cardHolderName:req.body.cardHolderName, 
+                cardNumber:req.body.cardNumber, 
+                cardExpirationDate:req.body.cardExpirationDate, 
+                cardCvv:req.body.cardCvv
             } 
             
             const paymentCardBusiness = new PaymentCardBusiness()
-            const result = paymentCardBusiness.paymentCard(input)
+            const result = await paymentCardBusiness.paymentCard(input)
 
-            res.status(200).send(result)
+            res.status(201).send(result)
         } catch (error:any) {
             res.status(400).send({error:error.messsage})
         }   

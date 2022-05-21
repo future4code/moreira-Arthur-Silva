@@ -31,7 +31,29 @@ export class PaymentSlip {
 export type inputSlipDTO = {
     nameBuyer:string,
     emailBuyer:string,
-    cpfBuyer:number,
-    amountPayment:number,
+    cpfBuyer:string,
     typePayment:string
+}
+export type clientInfo = {
+    id:string
+}
+export type buyerInfo = {
+    id:string,
+    nameBuyer:string,
+    emailBuyer:string,
+    cpfBuyer:string
+}
+export type paymentInfo = {
+    idPayment:string,
+    nameBuyer:string,
+    emailBuyer:string,
+    cpfBuyer:string,
+    amountPayment:number,
+    typePayment:string,
+    numberSlip:string,
+    status: string
+}
+export type PaymentDataSlip = {
+    status:string,
+    slip:string
 }

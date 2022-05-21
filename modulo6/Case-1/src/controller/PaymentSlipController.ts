@@ -12,14 +12,13 @@ export class PaymentSlipController {
                 nameBuyer: req.body.nameBuyer,
                 emailBuyer: req.body.email,
                 cpfBuyer: req.body.cpfBuyer,
-                amountPayment: req.body.amountPayment,
                 typePayment: req.body.typePayment
             } = req.body
-
+            
             const paymentSlip = new PaymentSlipBusiness()
-            const result = paymentSlip.paymentSlip(input)
+            const result = await paymentSlip.paymentSlip(input)
 
-            res.status(400).send(result)
+            res.status(201).send(result)
         } catch (error:any) {
             res.status(400).send({error:error.messsage})
         }

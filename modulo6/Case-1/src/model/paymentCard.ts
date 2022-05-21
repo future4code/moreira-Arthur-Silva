@@ -26,15 +26,39 @@ export class PaymentCard {
 export type inputCardDTO = {
     nameBuyer:string,
     emailBuyer:string,
-    cpfBuyer:number,
+    cpfBuyer:string,
+    typePayment:string,
+    cardHolderName:string,
+    cardNumber:string,
+    cardExpirationDate:string,
+    cardCvv:string
+}
+export type clientInfoCard = {
+    id:string,
+    nameBuyer:string
+}
+export type buyerInfoCard = {
+    id:string,
+    nameBuyer:string,
+    emailBuyer:string,
+    cpfBuyer:string
+}
+export type paymentInfoCard = {
+    idPayment:string,
+    nameBuyer:string,
+    emailBuyer:string,
+    cpfBuyer:string,
     amountPayment:number,
     typePayment:string,
-    holderNameCard:string,
-    numberCard:number,
-    expirationDateCard:number,
-    cvvCard:number
+    cardHolderName:string,
+    cardNumber:string,
+    cardExpirationDate:string,
+    cardCvv:string
+    status: string
 }
-/* export enum enumPayment {
-    CreditCard = "Credit Card",
-    PaymentSlip = "PaymentSlip"
-} */
+export type infoPayCard = {
+    idPayment:string,
+    nameBuyer:string,
+    cpfBuyer:string,
+    status:string,
+}

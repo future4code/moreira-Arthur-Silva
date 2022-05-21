@@ -4,8 +4,8 @@
   "description": "Case de uma API, elaborado e feito na escola onde estudo programação(Labenu)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev ./src/index.ts"
+    "start": "node build/index.js",
+    "postinstall": "tsc"
   },
   "keywords": [
     "back-end",
