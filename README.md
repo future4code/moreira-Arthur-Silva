@@ -13,13 +13,13 @@ Essa API seria apenas uma pequena parte do WIRECARD.</p>
 <p>Linguagens utilizadas: NODE e TYPESCRIPT.</p>
 <p>Possui testes Unitários: SIM.</p>
 <p>Possui Banco de Dados: SIM e utilizo a linguagem SQL para manipulação.</p>
-<p>Url base: http://localhost:3003</p>
+<p>URL BASE: https://arthurcase-1.herokuapp.com</p>
 
 <h3>-Endpoint para pagamento com Cartão de Crédito</h3>
 
     Exemplo de requisição:</h5>
 
-    POST - http://localhost:3003/payment/card
+    POST - https://arthurcase-1.herokuapp.com/payment/card
 
     BODY REQUEST = {
         "nameBuyer":"joao mathias",
@@ -58,7 +58,7 @@ Essa API seria apenas uma pequena parte do WIRECARD.</p>
 
     Exemplo de requisição:
 
-    POST - http://localhost:3003/payment/slip
+    POST - https://arthurcase-1.herokuapp.com/payment/slip
 
     BODY REQUEST = {
         "nameBuyer":"joao lukas",
@@ -80,11 +80,12 @@ Essa API seria apenas uma pequena parte do WIRECARD.</p>
 
     Exemplo de requisição:
 
-    GET - http://localhost:3003/payment/card/:id
+    GET - https://arthurcase-1.herokuapp.com/payment/card/:id
 
     PARAMS / KEY = id / VALUE = 'id do pagamento'
 
     ATENÇÃO: aqui a requisição será feito por params, onde a chave(KEY) se chama "id" e o valor(VALUE) será o id do pagamento que a pessoa fez anteriormente.
+    ATENÇÃO: se você quiser testar esta requisição com a URL-BASE em seu navegador, ATENTE-SE de não colocar dois pontos, que nem ao lado => ":" antes de colocar o id de pagamento, isto irá gerar um erro. Exemplo de teste no navegador: "https://arthurcase-1.herokuapp.com/payment/card/4a48f744-68ea-494f-ba4d-9ed658917850"
 
     Exemplo de saída: 
 
