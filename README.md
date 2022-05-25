@@ -1,11 +1,11 @@
 <h1>Seja bem-vindo a API de pagamentos do WIRECARD!</h1>
 
-<p>Deixa eu te contar uma história. Há um tempo atras o pessoal me designou a tarefa de criar uma API de pagamentos...
-Essa API seria apenas uma pequena parte do WIRECARD.</p>
+<p>Deixa eu te contar uma história. Há um tempo atrás o pessoal me designou a tarefa de criar uma API de pagamentos...
+Esta API seria apenas uma pequena parte do WIRECARD.</p>
 
-<p>Como eu tinha de montar apenas uma parte desta API, alguns tópicos foram me passados para que eu pudesse desenvolve-la, que são esses 5 endpoints que estarão abaixo.</p>
+<p>Como eu tinha de montar apenas uma parte desta API, alguns tópicos foram me passados para que eu pudesse desenvolvê-la, que são esses 4 endpoints que estarão abaixo.</p>
 
-<p>AHH, e aqui eu ensino voces a como usar a API que desenvolvi com muito carinho(e suor, rs), brincadeiras a parte abaixo terá algumas informações básicas e técnicas e logo como usa-la. Obrigado.</p> 
+<p>AHH, e aqui eu ensino voces a como usar a API que desenvolvi com muito carinho(e suor, rs), e abaixo você terá algumas informações básicas e técnicas e logo como usá-la. Obrigado.</p> 
 
 <h3>- Informações</h3>
 <p>Desenvolvida por: Arthur Kelvim de Oliveira Silva</p>
@@ -32,7 +32,7 @@ Essa API seria apenas uma pequena parte do WIRECARD.</p>
         "cardCvv":"791"
     }
 
-    ATENÇÃO: nesta API apenas 6 tipos de cartões são válidos, listo abaixo quais são e como são os modelos aceitavéis.
+    ATENÇÃO: nesta API apenas 6 tipos de cartões são válidos, listo abaixo quais são e quais são os modelos aceitavéis.
 
     American Express: começando com 34 ou 37 e comprimento de 15 digitos.
     Visa: começando com 4, comprimento de 13 ou 16 digitos. 
@@ -41,7 +41,7 @@ Essa API seria apenas uma pequena parte do WIRECARD.</p>
     Diners Club: começando com 300 a 305, 36 ou 38, comprimento de 14 digitos.
     JCB: começando com 2131 ou 1800, comprimento de 15 digitos ou começando com 35, comprimento de 16 digitos.
 
-    ATENÇÃO: o campo de CPF necessita-se que seja preenchido com os pontos e hífen antes dos dois número finais e isso vale tanto para o endpoint de pagamento com boleto quanto para este.
+    ATENÇÃO: o campo de CPF necessita-se que seja preenchido com os pontos e hífen antes dos dois número finais e isso vale tanto para o endpoint de pagamento quanto o de boleto.
 
     ATENÇÃO: no campo de "typePayment" é necessário que seja colocado "credit card"(minusculo) ou "Credit Card"(maiusculo), somente estes dois são permitidos, por que voce está no endpoint de pagamento com cartão de credito(credit card). 
 
@@ -116,7 +116,7 @@ Essa API seria apenas uma pequena parte do WIRECARD.</p>
     }
 
 
-<h5>Então pessoal, eu espero que tenham gostado, é uma API super simples, mas que já mostra um pouco de mim, eu irei deixar a API aqui por que futuramente prentendo melhora-la e usá-la para estudos e insight de futuros projetos.</h5> 
+<h5>Então pessoal, eu espero que tenham gostado, é uma API super simples, mas que já mostra um pouco de mim e do que eu sei fazer, eu irei deixar a API aqui por que futuramente prentendo melhora-la e usá-la para estudos e insight de futuros projetos.</h5> 
 <h5>As minha rede sociais e contatos encontra-se na descrição do meu perfil, fiquem a vontade para me contatar.<h5> 
 
 <p>console.log("BY BY :D")</p>
