@@ -4,6 +4,6 @@ export enum Status {
 }
 
 export interface CreateComptDTO {
-    nameCompt:string,
+    nameOfCompetition:string,
     status:Status
 }

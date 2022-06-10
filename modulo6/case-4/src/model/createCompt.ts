@@ -5,6 +5,6 @@ export enum Status {
 
 export interface CreateCompt {
     id:string
-    nameCompt:string,
+    nameOfCompetition:string,
     status:Status
 }

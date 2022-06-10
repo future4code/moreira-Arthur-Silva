@@ -11,14 +11,14 @@ export class CreateComptCont {
     ){
         try {
             const inputCreateComptDTO:CreateComptDTO = {
-                nameCompt: req.body.nameOfCompetition,
+                nameOfCompetition: req.body.nameOfCompt,
                 status: req.body.status
             }
-            const createCompetition = this.createComptBuss.createCompetition(inputCreateComptDTO)
+            const createCompetition = await this.createComptBuss.createCompetition(inputCreateComptDTO)
             res.status(201).send(createCompetition)
         } catch (error:any) {
             if(error instanceof CustomError){
-                res.status(error.statusCode).send(error.message)
+                res.status(error.statusCode).send({error:error.message})
             }else if(error){
                 res.status(400).send(error.message)
             }else {
