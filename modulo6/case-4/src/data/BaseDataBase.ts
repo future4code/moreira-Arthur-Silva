@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-class BaseDataBase {
+export class BaseDataBase {
   connection = knex({
     client: "mysql",
     connection: {
