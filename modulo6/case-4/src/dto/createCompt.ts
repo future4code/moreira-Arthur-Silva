@@ -1,6 +1,6 @@
 export enum Status {
-    open = "OPEN",
-    closed = "CLOSED"
+    open = "open",
+    closed = "closed"
 }
 
 export interface CreateComptDTO {

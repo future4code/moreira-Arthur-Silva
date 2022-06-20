@@ -14,12 +14,11 @@ export class CreateComptBuss {
 
         if(!nameOfCompetition || !status){
             throw new CustomError(204, "Os campos não foram preenchidos corretamente.")
-        } else if(status !== Status.open){
+        } else if(status !== "open"){
             throw new CustomError(400, "O campo de 'status' não pode ser diferente de 'open' ao criar uma competição.")
         }
-        const id = this.generatedId.newId()
+        
         const competition:CreateCompt = {
-            id,
             nameOfCompetition,
             status
         }
