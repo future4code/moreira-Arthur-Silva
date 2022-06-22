@@ -3,6 +3,7 @@ import cors from "cors";
 import { AddressInfo } from "net";
 import { createComptRouter } from "./router/createCompt";
 import { newResultRouter } from "./router/newResult";
+import { finishComptRouter } from "./router/finishCompt";
 //express & CORS
 const app: Express = express();
 
@@ -11,6 +12,7 @@ app.use(cors());
 
 app.use("/create", createComptRouter)
 app.use("/new", newResultRouter)
+app.use("/finish", finishComptRouter)
 
 //Server config
 const server = app.listen(process.env.PORT || 3003, () => {

@@ -1,8 +1,8 @@
-import express from "express"
 import { NewResultBuss } from "../business/NewResultBuss";
 import { NewResultCont } from "../controller/NewResultCont";
 import { NewResultData } from "../data/NewResultData";
 import { GeneratedId } from "../services/GeneratedId";
+import express from "express"
 
 const newResultData = new NewResultData()
 const generatedId  = new GeneratedId()
