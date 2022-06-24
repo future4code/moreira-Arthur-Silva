@@ -1,8 +1,12 @@
 import { RankingData } from "../data/RankingData";
+import { VerifyStatusCompetition } from "../data/VerifyStatusCompt";
 import { CustomError } from "../error/CustomError";
 
 export class RankingBuss {
-    constructor(private rankingData:RankingData) {}
+    constructor(
+        private rankingData:RankingData,
+        private verifyStatusCompetition:VerifyStatusCompetition
+    ) {}
     async returnRanking(nameCompetition:string){
         
         if(!nameCompetition){
@@ -10,10 +14,36 @@ export class RankingBuss {
         }
 
         if(nameCompetition === "100m rasos"){
-            return await this.rankingData.returnRanking100M(nameCompetition)
+            const result = await this.rankingData.returnRanking100M(nameCompetition)
+            const statusCompt = await this.verifyStatusCompetition.verifyStatus(nameCompetition)
+            
+            let i = 1
+            const returnPosition = result.map((item) => {
+                const rankingWithPosition = {
+                    position:i++,
+                    athlete:item.athlete,
+                    value:item.value
+                }
+                return rankingWithPosition
+            }) 
+            const rankingWithStatus = [statusCompt, returnPosition]
+            return rankingWithStatus.flat(2)
         }
         if(nameCompetition === "Lançamento de Dardo"){
-            return await this.rankingData.returnRankingJavelinThrow(nameCompetition)
+            const result = await this.rankingData.returnRankingJavelinThrow(nameCompetition)
+            const statusCompt = await this.verifyStatusCompetition.verifyStatus(nameCompetition)
+
+            let i = 1
+            const returnPosition = result.map((item) => {
+                const rankingWithPosition = {
+                    position:i++,
+                    athlete:item.athlete,
+                    value:item.value
+                }
+                return rankingWithPosition
+            })
+            const rankingWithStatus = [statusCompt, returnPosition] 
+            return rankingWithStatus.flat(2)
         }
     }
 }

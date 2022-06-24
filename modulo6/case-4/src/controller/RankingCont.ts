@@ -11,12 +11,11 @@ export class RankingCont {
     ){
         try {
             const nameOfCompetition = req.params.nameOfCompetition
-            console.log("nameofcompetition", nameOfCompetition)
             const result = await this.rankingBuss.returnRanking(nameOfCompetition)
             res.status(200).send(result)
         } catch (error:any) {
             if(error instanceof CustomError){
-                res.status(error.statusCode).send(error.message)
+                res.status(error.statusCode).send({messag:error.message})
             }else if(error){
                 res.status(400).send(error.message)
             }else{

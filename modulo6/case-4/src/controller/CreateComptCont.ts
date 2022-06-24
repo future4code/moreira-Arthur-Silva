@@ -15,10 +15,10 @@ export class CreateComptCont {
                 status: req.body.status
             }
             const createCompetition = await this.createComptBuss.createCompetition(inputCreateComptDTO)
-            res.status(201).send(createCompetition)
+            res.status(201).send({message:createCompetition})
         } catch (error:any) {
             if(error instanceof CustomError){
-                res.status(error.statusCode).send({error:error.message})
+                res.status(error.statusCode).send({message:error.message})
             }else if(error){
                 res.status(400).send(error.message)
             }else {

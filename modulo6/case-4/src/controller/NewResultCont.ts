@@ -21,7 +21,7 @@ export class NewResultCont {
             res.status(201).send(newResultBuss)
         } catch (error:any) {
             if(error instanceof CustomError){
-                res.status(error.statusCode).send({error:error.message})
+                res.status(error.statusCode).send({message:error.message})
             }else if(error){
                 res.status(400).send(error.message)
             } else{

@@ -3,12 +3,15 @@ import { NewResultCont } from "../controller/NewResultCont";
 import { NewResultData } from "../data/NewResultData";
 import { GeneratedId } from "../services/GeneratedId";
 import express from "express"
+import { VerifyStatusCompetition } from "../data/VerifyStatusCompt";
 
+const verifyStatusCompetition = new VerifyStatusCompetition()
 const newResultData = new NewResultData()
 const generatedId  = new GeneratedId()
 const newResultBuss = new NewResultBuss(
     newResultData,
-    generatedId
+    generatedId,
+    verifyStatusCompetition
 );
 
 export const newResultRouter = express.Router()

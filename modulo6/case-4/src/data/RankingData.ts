@@ -4,10 +4,6 @@ export class RankingData extends BaseDataBase{
     private TABLENAME100M = "Result100M"
     private TABLENAMEJTHROW = "ResultJavelinThrow"
     
-    async verifyNameExists(name:string){
-        await this.connection()
-            .select("*", )
-    }
     async returnRanking100M(nameOfCompetition:string){
         const result = await this.connection(this.TABLENAME100M)
             .select("athlete", "value")
@@ -18,7 +14,7 @@ export class RankingData extends BaseDataBase{
         const result = await this.connection()
             .select("athlete", "value")
             .from(this.TABLENAMEJTHROW)
-            .orderBy("value", "asc")
+            .orderBy("value", "desc")
         return result    
     }
 }

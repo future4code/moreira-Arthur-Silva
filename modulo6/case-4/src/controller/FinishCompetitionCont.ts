@@ -20,7 +20,7 @@ export class FinishCompetitionCont {
             res.status(200).send(finishCompetitionBuss)
         } catch (error:any) {
             if(error instanceof CustomError){
-                res.status(error.statusCode).send(error.message)
+                res.status(error.statusCode).send({message:error.message})
             }else if(error){
                 res.status(400).send(error.message)
             }else{
